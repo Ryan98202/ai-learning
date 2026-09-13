@@ -16,11 +16,13 @@ print("解释器版本:", __import__("sys").version.split()[0])
 
 # 变量：把值存起来，起个名字
 name = "Ryan"
-days = 11
+weeks = 11
+total_hours = 528
 
-# f-string：Python 3.6+ 的字符串格式化写法，花括号里可以直接放变量
-print(f"{name} 计划用 {days} 周学完 AI 应用开发。")
-print(f"平均每周要完成 {days} 个阶段中的 {round(77/days, 1)}% —— 开个玩笑，不是这么算的。")
+# f-string：Python 3.6+ 的字符串格式化写法，花括号里可以直接放变量或算式
+print(f"{name} 计划用 {weeks} 周学完 AI 应用开发。")
+# 冒号后的 .1f 表示"保留 1 位小数"，不写会打印一长串小数位
+print(f"总预算 {total_hours} 小时，平均每周 {total_hours / weeks:.1f} 小时 —— 相当于一份全职工作。")
 
 # for 循环：把列表里的每一项依次取出来
 skills = ["Python", "大模型应用", "RAG 知识库", "Agent 智能体", "工程化部署"]
