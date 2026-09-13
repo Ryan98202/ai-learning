@@ -14,7 +14,14 @@ ai-learning/
 ├── week00-setup/       阶段 0：环境 + 认知
 │   ├── hello.py        第一个 Python 程序
 │   └── first_call.py   第一次用代码调用 AI 模型
-└── (week01 ~ week11 陆续创建)
+├── week01-python/      W1：Python 基础语法（2 小时起步套件）
+│   ├── README.md       ← 从这份开始读：怎么做、怎么运行、卡住了怎么办
+│   ├── 01_intro.py     变量与输出
+│   ├── 02_guess.py     判断 if
+│   ├── 03_guess_loop.py 循环 while
+│   ├── 04_wordcount.py  函数 + 列表 + 字典
+│   └── solutions/      参考答案（卡超过 10 分钟再看）
+└── (week02 ~ week11 陆续创建)
 ```
 
 ---
