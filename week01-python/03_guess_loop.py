@@ -38,9 +38,9 @@ guess = 0       # 初始值。它只要不等于 secret，循环就能进去
 #
 # 循环体里要做三件事（都要缩进，且顺序有讲究）：
 #   一、用 input 问一次，把结果转成数字，存进 guess
-#        写法：guess = int(input("再猜一个 1 到 10 的数字："))
+guess = int(input("再猜一个 1 到 10 的数字："))
 #   二、tries 加 1
-#        写法：tries = tries + 1
+tries = tries + 1
 #   三、打印 "太大了" 或 "太小了"（这里需要用到 if / elif，就是你刚学会的）
 #
 # 顺序很重要：必须先问、再计数、最后判断提示。
@@ -61,4 +61,19 @@ print(f"猜对了！你一共猜了 {tries} 次。")
 #   2) 把 secret 改成随机数（参考 02 文件末尾的说明）
 #   3) 加一个上限：猜超过 5 次就提示"次数用完了，正确答案是 xxx"，
 #      这需要 while 条件里再加大一个判断，用到 and 这个词
-# ------------------------------------------------------------
+# -----------------------------------------------------------
+
+guess = int(input("pls input a number: "))
+secret = 7
+tries = 0
+
+while guess != secret:
+    tries += 1
+    if guess > secret:
+        print("Too big!")
+    else:
+        print("Too small!")
+    guess = int(input("pls input a number: "))
+
+tries += 1
+print(f"You win! You used {tries} tries.")
