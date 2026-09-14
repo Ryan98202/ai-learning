@@ -34,23 +34,23 @@ tries = 0
 guess = 0       # 初始值。它只要不等于 secret，循环就能进去
 
 # ------------------------------------------------------------
-# TODO：把下面的 while 循环写出来
+# 下面就是填好的 while 循环（原来 TODO 的位置）
 #
-# 循环体里要做三件事（都要缩进，且顺序有讲究）：
+# 循环体里做三件事（都要缩进在 while 下面，顺序有讲究）：
 #   一、用 input 问一次，把结果转成数字，存进 guess
-guess = int(input("再猜一个 1 到 10 的数字："))
 #   二、tries 加 1
-tries = tries + 1
-#   三、打印 "太大了" 或 "太小了"（这里需要用到 if / elif，就是你刚学会的）
+#   三、用 if / elif 判断"太大 / 太小"，给提示
 #
 # 顺序很重要：必须先问、再计数、最后判断提示。
-# 如果写成先判断后问，判断用的还是上一轮的值，逻辑就错了。
-#
-# ⚠️ 如果跑起来提示一直刷、怎么都停不下来：
-#    说明循环体里少了"重新给 guess 赋值"，条件永远成立。
-#    按 Ctrl + C 强制停止，然后回来检查那三件事是不是都写了。
 # ------------------------------------------------------------
 
+while guess != secret:
+    guess = int(input("再猜一个 1 到 10 的数字："))
+    tries = tries + 1
+    if guess > secret:
+        print("太大了")
+    elif guess < secret:
+        print("太小了")
 
 # 下面这行在循环外面（没有缩进），所以循环结束之后才执行
 print(f"猜对了！你一共猜了 {tries} 次。")
@@ -63,17 +63,11 @@ print(f"猜对了！你一共猜了 {tries} 次。")
 #      这需要 while 条件里再加大一个判断，用到 and 这个词
 # -----------------------------------------------------------
 
-guess = int(input("pls input a number: "))
-secret = 7
-tries = 0
-
-while guess != secret:
-    tries += 1
-    if guess > secret:
-        print("Too big!")
-    else:
-        print("Too small!")
-    guess = int(input("pls input a number: "))
-
-tries += 1
-print(f"You win! You used {tries} tries.")
+# 容易写错的地方，对照检查：
+#   1) 循环体里漏了给 guess 重新赋值 → 条件永远成立，程序停不下来（Ctrl + C 停）
+#   2) 循环体里漏了 tries = tries + 1 → 能跑通，但最后显示"猜了 0 次"
+#   3) 判断提示写在 input 之前 → 用的是上一轮的值，提示慢一拍
+#   4) tries 那行忘了缩进 → 变成"循环结束后才执行"，逻辑就错了
+#
+# 小技巧：tries = tries + 1 有个简写 —— tries += 1，效果完全一样。
+#         Python 里 += -= *= 都是这个套路，后面会经常见到。

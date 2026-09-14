@@ -74,7 +74,7 @@ def count_chars(s):
 # 下面是"使用"这个函数 —— 这部分已经写好了，不用改
 # ============================================================
 
-freq = count_chars("学")
+freq = count_chars(text)
 
 # len() 是"长度"，对字典来说就是"里面有多少对"
 print(f"这句话共有 {len(freq)} 个不同的字。")
@@ -83,11 +83,11 @@ print()
 # 下面这行是排序取前五，现在照抄就行。
 # sorted(...) 会把字典里的配对按现次数从多到少排好，[:5] 表示取前五个。
 # 那个 lambda 是"匿名函数"的写法，第 4 周讲函数时会解释它，现在不用管。
-#top5 = sorted(freq.items(), key=lambda kv: kv[1], reverse=True)[:5]
+top5 = sorted(freq.items(), key=lambda kv: kv[1], reverse=True)[:5]
 
-# print("出现最多的五个字：")
-# for ch, n in top5:
-    # print(f"  {ch}    {n} 次")
+print("出现最多的五个字：")
+for ch, n in top5:
+    print(f"  {ch}    {n} 次")
 #
 # 预期输出（TODO 写对的情况下，已在本机实测）：
 #   这句话共有 26 个不同的字。
